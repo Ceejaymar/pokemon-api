@@ -1,0 +1,25 @@
+{
+  "name": "pokemon-api",
+  "version": "1.0.0",
+  "description": "Creating my own Pokemon API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ceejaymar/pokemon-api.git"
+  },
+  "author": "Ceejaymar",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ceejaymar/pokemon-api/issues"
+  },
+  "homepage": "https://github.com/Ceejaymar/pokemon-api#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "express": "^4.16.4",
+    "nodemon": "^1.18.9",
+    "pg-promise": "^8.5.5"
+  }
+}
