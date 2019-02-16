@@ -59,7 +59,6 @@ TrainerService.getAllPokemons = (name) => {
 }
 
 TrainerService.getLevelPokemons = (name, level) => {
-  console.log(level);
   const sql = `
     SELECT
       p.*,
