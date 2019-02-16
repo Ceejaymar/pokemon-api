@@ -32,7 +32,7 @@ trainerRouter.put('/:name', (req, res, next) => {
 
   TrainerService.update(name, hometown)
     .then(data => {
-      res.json({ success: `Updated trainer named ${name}` })
+      res.json({ success: `Updated trainer named ${name} with hometown ID: ${hometown}` })
     })
 })
 

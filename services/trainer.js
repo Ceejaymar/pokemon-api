@@ -28,7 +28,11 @@ TrainerService.read = (name) => {
 
 TrainerService.update = (name, hometown) => {
   const sql = `
-    
+    Update trainers
+    SET
+      hometown_id = $[hometown]
+    WHERE
+      trainers.name = $[name]
   `;
   return db.none(sql, {name, hometown});
 }
