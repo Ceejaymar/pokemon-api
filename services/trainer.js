@@ -28,7 +28,7 @@ TrainerService.read = (name) => {
 
 TrainerService.update = (name, hometown) => {
   const sql = `
-    Update trainers
+    UPDATE trainers
     SET
       hometown_id = $[hometown]
     WHERE
