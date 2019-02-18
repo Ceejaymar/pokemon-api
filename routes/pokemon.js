@@ -11,7 +11,7 @@ pokemonRouter.post('/', (req, res, next) => {
     })
     .catch(err => {
       next(err);
-    })
+    });
 });
 
 pokemonRouter.get('/:id', (req, res, next) => {
@@ -23,7 +23,31 @@ pokemonRouter.get('/:id', (req, res, next) => {
     })
     .catch(err => {
       next(err);
+    });
+});
+
+pokemonRouter.delete('/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  PokemonService.delete(id)
+    .then(data => {
+      res.json({ success: `Deleted pokemon with ID: ${id}` });
     })
+    .catch(err => {
+      next(err);
+    });
+});
+
+pokemonRouter.get('/:type/all', (req, res, next) => {
+  const { type } = req.params;
+
+  PokemonService.getAllWithType(type)
+    .then(data => {
+      res.json(data);
+    })
+    .catch(err => {
+      next(err);
+    });
 });
 
 module.exports = pokemonRouter;
