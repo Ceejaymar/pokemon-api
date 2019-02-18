@@ -19,7 +19,7 @@ pokemonRouter.get('/:id', (req, res, next) => {
 
   PokemonService.read(id)
     .then(data => {
-      res.json({ data });
+      res.json(data);
     })
     .catch(err => {
       next(err);

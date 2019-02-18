@@ -55,7 +55,7 @@ trainerRouter.get('/:name/pokemons', (req, res, next) => {
   if(levelmin) {
     TrainerService.getLevelPokemons(name, levelmin)
       .then(data => {
-        res.json({ data });
+        res.json(data);
       })
       .catch(err => {
         next(err);
@@ -64,7 +64,7 @@ trainerRouter.get('/:name/pokemons', (req, res, next) => {
   else {
     TrainerService.getAllPokemons(name)
       .then(data => {
-        res.json({ data });
+        res.json(data);
       })
       .catch(err => {
         next(err);
