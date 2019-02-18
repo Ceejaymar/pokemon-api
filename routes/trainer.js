@@ -31,8 +31,11 @@ trainerRouter.put('/:name', (req, res, next) => {
   const { hometown } = req.body;
 
   TrainerService.update(name, hometown)
-    .then(data => {
+    .then(() => {
       res.json({ success: `Updated trainer named ${name} with hometown ID: ${hometown}` });
+    })
+    .catch(err => {
+      next(err);
     });
 });
 
@@ -40,7 +43,7 @@ trainerRouter.delete('/:name', (req, res, next) => {
   const { name } = req.params;
   
   TrainerService.delete(name)
-    .then(data => {
+    .then(() => {
       res.json({ success: `Deleted trainer named ${name}` });
     })
     .catch(err => {
