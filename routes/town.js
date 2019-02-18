@@ -11,7 +11,7 @@ townRouter.get('/:name/trainers', (req, res, next) => {
     })
     .catch((err) => {
       next(err);
-    })
+    });
 });
 
 module.exports = townRouter;

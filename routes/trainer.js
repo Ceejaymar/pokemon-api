@@ -7,11 +7,11 @@ trainerRouter.post('/' , (req, res, next) => {
 
   TrainerService.create(name, hometown)
     .then(data => {
-      res.json({ success: `Created trainer with generated ID: ${data.id}` })
+      res.json({ success: `Created trainer with generated ID: ${data.id}` });
     })
     .catch(err => {
       next(err);
-    })
+    });
 });
 
 trainerRouter.get('/:name', (req, res, next) => {
@@ -23,7 +23,7 @@ trainerRouter.get('/:name', (req, res, next) => {
     })
     .catch(err => {
       next(err);
-    })
+    });
 });
 
 trainerRouter.put('/:name', (req, res, next) => {
@@ -32,21 +32,21 @@ trainerRouter.put('/:name', (req, res, next) => {
 
   TrainerService.update(name, hometown)
     .then(data => {
-      res.json({ success: `Updated trainer named ${name} with hometown ID: ${hometown}` })
-    })
-})
+      res.json({ success: `Updated trainer named ${name} with hometown ID: ${hometown}` });
+    });
+});
 
 trainerRouter.delete('/:name', (req, res, next) => {
   const { name } = req.params;
   
   TrainerService.delete(name)
     .then(data => {
-      res.json({ success: `Deleted trainer named ${name}` })
+      res.json({ success: `Deleted trainer named ${name}` });
     })
     .catch(err => {
       next(err);
-    })
-})
+    });
+});
 
 trainerRouter.get('/:name/pokemons', (req, res, next) => {
   const { name }  = req.params;
@@ -59,7 +59,7 @@ trainerRouter.get('/:name/pokemons', (req, res, next) => {
       })
       .catch(err => {
         next(err);
-      })
+      });
   }
   else {
     TrainerService.getAllPokemons(name)
@@ -68,8 +68,8 @@ trainerRouter.get('/:name/pokemons', (req, res, next) => {
       })
       .catch(err => {
         next(err);
-      })
-  }
+      });
+  };
 });
 
 

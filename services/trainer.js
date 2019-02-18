@@ -8,7 +8,7 @@ TrainerService.create = (name, hometown) => {
     VALUES 
       ($[name], $[hometown])
     RETURNING id;
-  `
+  `;
   return db.one(sql, { name, hometown });
 }
 
@@ -23,7 +23,7 @@ TrainerService.read = (name) => {
     WHERE
       trainers.name = $[name]
   `;
-  return db.one(sql, { name })
+  return db.one(sql, { name });
 }
 
 TrainerService.update = (name, hometown) => {
