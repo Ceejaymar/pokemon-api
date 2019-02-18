@@ -14,4 +14,16 @@ pokemonRouter.post('/', (req, res, next) => {
     })
 });
 
+pokemonRouter.get('/:id', (req, res, next) => {
+  const { id } = req.params;
+
+  PokemonService.read(id)
+    .then(data => {
+      res.json({ data });
+    })
+    .catch(err => {
+      next(err);
+    })
+});
+
 module.exports = pokemonRouter;
