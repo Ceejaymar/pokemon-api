@@ -31,7 +31,7 @@ pokemonRouter.put('/:id', (req, res, next) => {
   const { id } = req.params;
 
   PokemonService.update(trainer, name, level, type_1, type_2, id)
-    .then(data => {
+    .then(() => {
       res.json({ success: `Updated pokemon named ${name} with trainer ID: ${trainer}` });
     })
     .catch(err => {
@@ -43,7 +43,7 @@ pokemonRouter.delete('/:id', (req, res, next) => {
   const { id } = req.params;
 
   PokemonService.delete(id)
-    .then(data => {
+    .then(() => {
       res.json({ success: `Deleted pokemon with ID: ${id}` });
     })
     .catch(err => {
