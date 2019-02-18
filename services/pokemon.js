@@ -30,6 +30,21 @@ PokemonService.read = (id) => {
   return db.one(sql, { id });
 }
 
+PokemonService.update = (trainer, name, level, type_1, type_2, id) => {
+  const sql = `
+    UPDATE pokemons
+    SET
+      trainer_id = $[trainer],
+      name = $[name],
+      level = $[level],
+      type_1 = $[type_1],
+      type_2 = $[type_2]
+    WHERE
+      pokemons.id = $[id]
+  `;
+  return db.none(sql, { trainer, name, level, type_1, type_2, id })
+};
+
 PokemonService.delete = (id) => {
   const sql = `
     DELETE FROM pokemons

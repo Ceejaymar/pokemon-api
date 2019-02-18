@@ -26,6 +26,19 @@ pokemonRouter.get('/:id', (req, res, next) => {
     });
 });
 
+pokemonRouter.put('/:id', (req, res, next) => {
+  const { trainer, name, level, type_1, type_2 } = req.body;
+  const { id } = req.params;
+
+  PokemonService.update(trainer, name, level, type_1, type_2, id)
+    .then(data => {
+      res.json({ success: `Updated pokemon named ${name} with trainer ID: ${trainer}` });
+    })
+    .catch(err => {
+      next(err);
+    });
+});
+
 pokemonRouter.delete('/:id', (req, res, next) => {
   const { id } = req.params;
 
